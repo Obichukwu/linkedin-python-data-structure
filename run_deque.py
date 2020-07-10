@@ -6,15 +6,13 @@ def is_palindrome(word):
         deq.add_rear(ch)
     #deq.items = word.split()
 
-    while not deq.is_empty():
-        if (deq.peek_front() != deq.peek_rear()):
+    while deq.size() >= 2:
+        front = deq.remove_front()
+        rear = deq.remove_rear()
+
+        if (front != rear):
             return False
 
-        if not deq.is_empty():
-            deq.remove_front()
-
-        if deq.remove_front():
-            deq.remove_rear()
     return True
 
 def test_is_palindrome():
